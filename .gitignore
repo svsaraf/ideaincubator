@@ -1,0 +1,7 @@
+settings.pyc
+urls.pyc
+i2.sqlite3
+ideas/models.pyc
+ideas/admin.pyc
+ideas/__init__.pyc
+ideas/views.pyc
