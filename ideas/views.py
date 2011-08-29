@@ -8,6 +8,7 @@ from django.conf import settings
 from django.contrib.auth import login, authenticate
 
 def index(request):
+#    import pdb; pdb.set_trace()
     print settings.FACEBOOK_APP_ID
     cookie = facebook.get_user_from_cookie(request.COOKIES, settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
     message = ''
@@ -24,9 +25,10 @@ def index(request):
             print profile
 
             try:
-                user = User.objects.get(username=profile['username'])
+                genUser = profile['first_name'] + profile['id']
+                user = User.objects.get(username=genUser)
             except User.DoesNotExist:
-                user = User.objects.create_user(profile['username'], email='test@example.com', password=profile['username'])
+                user = User.objects.create_user(username=genUser, email='test@example.com', password=genUser)
                 user.first_name = profile['first_name']
                 user.last_name = profile['last_name']
                 user.save()
