@@ -32,6 +32,15 @@ text-align:center;
 font: 13px/27px Arial, sans-serif;
 }
 
+#fb{
+display:inline;
+text-decoration:none;
+background:#2F4F4F;
+float: right;
+text-align:center;
+margin: 4px;
+}
+
 ul#list-nav li#logo a {
 text-decoration:none;
 padding-top: 3px;
@@ -45,8 +54,6 @@ text-align:center;
 font: 20px/27px Georgia, sans-serif;
 font-weight: bold;
 }
-
-
 
 ul#list-nav li#logo a:hover {
         color:#ffffff;
@@ -85,11 +92,16 @@ color:#ffffff
         background-repeat: repeat-x;
         border-bottom: 0px solid black;
         height: 30px;
-        opacity: 1;
+        opacity: 1; 
         position: absolute;
-        top: 0;
-        left: 0;
+	top: 0;
         width: 100%;
+	left: 0;
+	right: 25px;
 	box-shadow: 0px 5px 5px #888;
 }
 
+#central {
+	width: 700px;
+	margin-left: 21%;
+}

@@ -9,20 +9,24 @@
   <body>
 
 <div id="header">
+	<div id="central">
         <ul id="list-nav">
-                <li id="logo"><a href="#">ideaincubator</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Contact</a></li>
+                <li id="logo"><a href="http://www.ideaincubator.com/">ideaincubator</a></li>
+                <li><a href="#">Post Idea</a></li>
         </ul>
         <ul id="list-nav-right">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
+		{% if current_user %}
+		<li><a href="#">{{ current_user.first_name|escape }} {{ current_user.last_name|escape }}</a></li>
+		{% else %}
+		<li><a href="#">Public</a></li>
+		{% endif %}
+		<div id="fb"><fb:login-button autologoutlink="true" perms="offline_access"></fb:login-button></div>
         </ul>
+	</div>
 </div>
 <p>&nbsp;</p>
-
+<p>&nbsp;</p>
+Hello.
     <fb:login-button autologoutlink="true" perms="offline_access"></fb:login-button>
 
     {% if current_user %}
