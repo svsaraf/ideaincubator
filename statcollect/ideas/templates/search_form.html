@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>Search</title>
+</head>
+<body>
+	<form action='/search/' method="get">
+		<input type="text" name="q">
+		<input type="submit" value="Search">
+	</form>
+<p>
+<p>
+{{ variable }} 
+	{% if ideas %}
+		<ul>
+			{% for idea in ideas %}
+			<li>{{ idea.ideaname }}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+</body>
+</html>
