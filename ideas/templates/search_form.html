@@ -10,10 +10,12 @@
 <p>
 <p>
 {{ variable }} 
-	<ul>
-		{% for idea in ideas %}
-		<li>{{ idea.ideaname }}</li>
-		{% endfor %}
-	</ul>
+	{% if ideas %}
+		<ul>
+			{% for idea in ideas %}
+			<li>{{ idea.ideaname }}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
 </body>
 </html>

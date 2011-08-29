@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.forms import ModelForm
 
 class UserMethods:
     def name(self):
@@ -10,7 +11,7 @@ User.__bases__ += (UserMethods,)
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
     fbid = models.BigIntegerField(default=0, primary_key=True)
-    friends = models.ManyToManyField("self")
+#    friends = models.ManyToManyField("self")
     access_token = models.CharField(max_length=200, default='')
 
     def get_friends(self):
