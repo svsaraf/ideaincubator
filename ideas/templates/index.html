@@ -11,8 +11,12 @@
 <div id="header">
 	<div id="central">
         <ul id="list-nav">
-                <li id="logo"><a href="http://www.ideaincubator.com/">ideaincubator</a></li>
+                <li id="logo"><a href="/">ideaincubator</a></li>
                 <li><a href="#">Post Idea</a></li>
+		<form action='/search/' method="get">
+			<input size=30 type="text" name="q">
+			<input type="submit" value="Search">
+		</form>
         </ul>
         <ul id="list-nav-right">
 		{% if current_user %}
@@ -26,12 +30,6 @@
 </div>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-Hello.
-    <fb:login-button autologoutlink="true" perms="offline_access"></fb:login-button>
-
-    {% if current_user %}
-      <p>Hello, {{ current_user.first_name|escape }}</p>
-    {% endif %}
 
     <div id="fb-root"></div>
     <script>

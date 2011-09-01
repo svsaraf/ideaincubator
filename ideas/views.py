@@ -10,44 +10,11 @@ from django.contrib.auth import login, authenticate
 def index(request):
 #    import pdb; pdb.set_trace()
     print settings.FACEBOOK_APP_ID
-    cookie = facebook.get_user_from_cookie(request.COOKIES, settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
-    message = ''
-    user = None
-    if cookie:
-        print cookie
-        try:
-            up = UserProfile.objects.get(fbid=cookie['uid'])
-            print up.access_token
-            user = up.user
-        except UserProfile.DoesNotExist:
-            graph = facebook.GraphAPI(cookie["access_token"])
-            profile = graph.get_object("me")
-            print profile
-
-            try:
-                genUser = profile['first_name'] + profile['id']
-                user = User.objects.get(username=genUser)
-            except User.DoesNotExist:
-                user = User.objects.create_user(username=genUser, email='test@example.com', password=genUser)
-                user.first_name = profile['first_name']
-                user.last_name = profile['last_name']
-                user.save()
-
-            up = UserProfile(user=user, fbid=cookie['uid'], access_token=cookie['access_token'])
-            up.save()
-        user = authenticate(username=user.username, password=user.username)
-        if user is not None:
-            login(request, user)
-        else:
-            print "user was none"
-    else:
-        message='Log in'
-
+    dictionary_list = getLoginInfo(request)
+    
     return render_to_response('index.html', {
-        'variable': "here",
         "facebook_app_id": settings.FACEBOOK_APP_ID,
-        "message": message,
-        "current_user": user}, 
+        "current_user": dictionary_list["current_user"]}, 
         context_instance=RequestContext(request)
     )
 
@@ -82,5 +49,43 @@ def ideasubmit(request):
         'form': form, 'message': message,
     }, context_instance=RequestContext(request))
 
+def getLoginInfo(request):
+    cookie = facebook.get_user_from_cookie(request.COOKIES, settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
+    message = ''
+    user = None
+    if cookie:
+        print cookie
+        try:
+            up = UserProfile.objects.get(fbid=cookie['uid'])
+            print up.access_token
+            user = up.user
+        except UserProfile.DoesNotExist:
+            graph = facebook.GraphAPI(cookie["access_token"])
+            profile = graph.get_object("me")
+            print profile
+
+            try:
+                genUser = profile['first_name'] + profile['id']
+                user = User.objects.get(username=genUser)
+            except User.DoesNotExist:
+                user = User.objects.create_user(username=genUser, email='test@example.com', password=genUser)
+                user.first_name = profile['first_name']
+                user.last_name = profile['last_name']
+                user.save()
+
+            up = UserProfile(user=user, fbid=cookie['uid'], access_token=cookie['access_token'])
+            up.save()
+        user = authenticate(username=user.username, password=user.username)
+        if user is not None:
+            login(request, user)
+        else:
+            print "user was none"
+    else:
+        message='Log in'
+
+    parts_dict = {}
+    parts_dict["message"] = message
+    parts_dict["current_user"] = user
+    return parts_dict
 
 #Create your views here.
