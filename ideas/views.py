@@ -23,13 +23,14 @@ def search_form(request):
 
 def search(request):
     ideas = ''
+    dictionary_list = getLoginInfo(request)
     if 'q' in request.GET and request.GET['q']:
         q = request.GET['q']
         ideas = Idea.objects.filter(ideaname__icontains=q)
         message = 'You searched for %r' % request.GET['q']
     else:
         message = 'Search for something!'
-    return render_to_response('search_form.html', {'variable': message, 'ideas': ideas})
+    return render_to_response('search_form.html', {'variable': message, "facebook_app_id": settings.FACEBOOK_APP_ID, "current_user": dictionary_list["current_user"], 'ideas': ideas})
 
 def ideasubmit(request):
     message = ''
