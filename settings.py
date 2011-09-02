@@ -5,8 +5,12 @@ import socket
 
 if socket.gethostname() == 'web207.webfaction.com':
     DEBUG = TEMPLATE_DEBUG = False
+    FACEBOOK_APP_ID = "150543648366824"
+    FACEBOOK_APP_SECRET = "4b00904811ba796eb967dfbd65584cbb"
 else:
     DEBUG = TEMPLATE_DEBUG = True
+    FACEBOOK_APP_ID = "175515235813535"
+    FACEBOOK_APP_SECRET = "b7d93d6dfe33d01a698e6af7687eaac4"
 
 
 ADMINS = (
@@ -14,9 +18,6 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-
-FACEBOOK_APP_ID = "175515235813535"
-FACEBOOK_APP_SECRET = "b7d93d6dfe33d01a698e6af7687eaac4"
 
 if socket.gethostname() == 'web207.webfaction.com':
     DATABASES = {
