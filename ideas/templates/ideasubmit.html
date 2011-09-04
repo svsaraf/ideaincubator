@@ -1,14 +1,16 @@
-<head>
-        <title>Submit an idea</title>
-</head>
-<body>
+{% extends "index.html" %}
+
+
+{% block content %}
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
         <form action='/ideasubmit/' method="post">{% csrf_token %}
                 {{ form.as_p }}
-	<input type="submit" value="Submit" />
+        <input type="submit" value="Submit" />
         </form>
 <p>
 <p>
 {{ message }}
-</body>
-</html>
+
+{% endblock %}
 

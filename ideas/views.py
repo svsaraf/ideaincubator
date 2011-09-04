@@ -33,13 +33,14 @@ def search(request):
     return render_to_response('search_form.html', {'variable': message, "facebook_app_id": settings.FACEBOOK_APP_ID, "current_user": dictionary_list["current_user"], 'ideas': ideas})
 
 def ideasubmit(request):
+    dictionary_list = getLoginInfo(request)
     message = ''
     if request.method == 'POST':
         form = IdeaForm(request.POST)
         if form.is_valid():
             newidea = form.save(commit=False)
             newidea.save()
-            return HttpResponseRedirect('/search_form/')
+            return HttpResponseRedirect('/')
         else: 
             form = IdeaForm()
             message = 'Not valid'
@@ -47,7 +48,7 @@ def ideasubmit(request):
         form = IdeaForm()
 
     return render_to_response('ideasubmit.html', {
-        'form': form, 'message': message,
+        'form': form, 'message': message, "facebook_app_id": settings.FACEBOOK_APP_ID, "current_user": dictionary_list["current_user"], 
     }, context_instance=RequestContext(request))
 
 def getLoginInfo(request):
