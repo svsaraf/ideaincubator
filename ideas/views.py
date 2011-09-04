@@ -6,15 +6,20 @@ from django.http import HttpResponseRedirect
 import facebook
 from django.conf import settings
 from django.contrib.auth import login, authenticate
+# from i2.ideas.models import Idea
+
+
 
 def index(request):
 #    import pdb; pdb.set_trace()
     print settings.FACEBOOK_APP_ID
     dictionary_list = getLoginInfo(request)
-    
-    return render_to_response('index.html', {
+    listofideas = Idea.objects.all().order_by('-created_at')
+
+    return render_to_response('home.html', {
         "facebook_app_id": settings.FACEBOOK_APP_ID,
-        "current_user": dictionary_list["current_user"]}, 
+        "current_user": dictionary_list["current_user"], 
+        "listofideas": listofideas},
         context_instance=RequestContext(request)
     )
 

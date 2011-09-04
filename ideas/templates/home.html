@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block staticstuff %}
+	<link rel="stylesheet" type="text/css" href="/static/css/list.css" />
+{% endblock %}
+
+{% block content %}
+  <div class="idealist">
+  {% for idea in listofideas %}
+	<div class="idea">
+		<div class="ideaname">
+			<br>{{ idea.ideaname }}</br>
+		</div>
+		<div class="ideadescription">
+			<br>{{ idea.ideadescription }}</br>
+		</div>
+		<div class="ideaauthor">
+			<br>{{ idea.author.name }}</br>
+		</div>
+	</div>
+  {% endfor %}
+  </div> 
+{% endblock %}
