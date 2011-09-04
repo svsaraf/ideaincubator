@@ -17,6 +17,10 @@
 //	vertical-align: bottom;
 }
 
+.idea:hover {
+	background-color: lightblue;
+}
+
 .ideaname a {
 	text-decoration: none;
 	font: 20px sans-serif;
@@ -28,10 +32,12 @@
 }
 
 .ideaauthor a {
+	text-decoration: none;
 	display: inline;
 	float: right;
 	font: 10px arial, sans-serif;
-	padding-right: 15px;
+	padding-top: 0px;
+	padding-right: 200px;
 }
 #space {
 	height: 2px;

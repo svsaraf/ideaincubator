@@ -1,58 +1,58 @@
 ul#list-nav {
-display: inline;
-list-style:none;
-padding:3;
+	display: inline;
+	list-style:none;
+	padding:3;
 }
 
 ul#list-nav-right {
-display: inline;
-list-style:none;
-padding:3;
+	display: inline;
+	list-style:none;
+	padding:3;
 }
 
 ul#list-nav li {
-display:inline;
+	display:inline;
 }
 
 ul#list-nav-right li {
-display:inline;
+	display:inline;
 }
 
 ul#list-nav li a {
-vertical-align:bottom;
-text-decoration:none;
-padding-top: 3px;
-padding-left: 10px;
-padding-right: 10px;
-ackground:#2F4F4F;
-float: left;
-color:#eee;
-text-align:center;
-/*border-left:1px solid #fff;*/
-font: 13px/27px Arial, sans-serif;
+	vertical-align:bottom;
+	text-decoration:none;
+	padding-top: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background:#2F4F4F;
+	float: left;
+	color:#eee;
+	text-align:center;
+	/*border-left:1px solid #fff;*/
+	font: 13px/27px Arial, sans-serif;
 }
 
 #fb{
-display:inline;
-text-decoration:none;
-background:#2F4F4F;
-float: right;
-text-align:center;
-margin: 4px;
+	display:inline;
+	text-decoration:none;
+	background:#2F4F4F;
+	float: right;
+	text-align:center;
+	margin: 4px;
 }
 
 ul#list-nav li#logo a {
-text-decoration:none;
-padding-top: 3px;
-padding-left: 10px;
-padding-right: 10px;
-background:#2F4F4F;
-float: left;
-color:#eee;
-text-align:center;
-/*border-left:1px solid #fff;*/
-font: 20px/27px Georgia, sans-serif;
-font-weight: bold;
+	text-decoration:none;
+	padding-top: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background:#2F4F4F;
+	float: left;
+	color:#eee;
+	text-align:center;
+	/*border-left:1px solid #fff;*/
+	font: 20px/27px Georgia, sans-serif;
+	font-weight: bold;
 }
 
 ul#list-nav li#logo a:hover {
@@ -62,27 +62,27 @@ ul#list-nav li#logo a:hover {
 
 
 ul#list-nav-right li a {
-text-decoration:none;
-padding-top: 3px;
-padding-left: 10px;
-padding-right: 10px;
-background:#2F4F4F;
-float: right;
-color:#eee;
-text-align:center;
-/*border-left:1px solid #fff;*/
-font: 13px/27px Arial, sans-serif;
+	text-decoration:none;
+	padding-top: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background:#2F4F4F;
+	float: right;
+	color:#eee;
+	text-align:center;
+	/*border-left:1px solid #fff;*/
+	font: 13px/27px Arial, sans-serif;
 }
 
 
 ul#list-nav li a:hover {
-background:#999999;
-color:#ffffff
+	background:#999999;
+	color:#ffffff
 }
 
 ul#list-nav-right li a:hover {
-background:#999999;
-color:#ffffff
+	background:#999999;
+	color:#ffffff
 }
 
 #header {
