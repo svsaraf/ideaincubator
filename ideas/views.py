@@ -34,11 +34,15 @@ def search(request):
 
 def ideasubmit(request):
     dictionary_list = getLoginInfo(request)
+    print dictionary_list["current_user"]
+    if dictionary_list["current_user"] == None:
+        return HttpResponseRedirect('/')
     message = ''
     if request.method == 'POST':
         form = IdeaForm(request.POST)
         if form.is_valid():
             newidea = form.save(commit=False)
+            newidea.author = dictionary_list["current_user"]
             newidea.save()
             return HttpResponseRedirect('/')
         else: 

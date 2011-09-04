@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.forms import ModelForm
+from django import forms
+from i2.ideas import views
 
 class UserMethods:
     def name(self):
@@ -33,7 +35,14 @@ class Idea(models.Model):
 class IdeaForm(ModelForm):
     class Meta:
         model = Idea
+        fields = ('ideaname', 'ideadescription')
 
+class IdeaSubmitForm(forms.Form):
+#    ideaname = models.CharField(max_length=30, label='Title')
+#    ideadescription = models.CharField(max_length=200, label='Description')
+#
+    class Meta:
+        model = Idea
+        fields = ('ideaname', 'ideadescription')
 
-    
 # Create your models here.
