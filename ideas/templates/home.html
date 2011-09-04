@@ -5,17 +5,17 @@
 {% endblock %}
 
 {% block content %}
+  <div>&nbsp;</div>
   <div class="idealist">
   {% for idea in listofideas %}
+	<div id="space">
+	</div>
 	<div class="idea">
 		<div class="ideaname">
-			<br>{{ idea.ideaname }}</br>
-		</div>
-		<div class="ideadescription">
-			<br>{{ idea.ideadescription }}</br>
+			<a href="#">{{ idea.ideaname }}</a>
 		</div>
 		<div class="ideaauthor">
-			<br>{{ idea.author.name }}</br>
+			<a href="#">{{ idea.author.name }}</a>
 		</div>
 	</div>
   {% endfor %}
