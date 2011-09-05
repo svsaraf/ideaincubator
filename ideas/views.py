@@ -47,8 +47,8 @@ def search(request):
 def ideasubmit(request):
     dictionary_list = getLoginInfo(request)
     print dictionary_list["current_user"]
-#    if dictionary_list["current_user"] == None:
-#        return HttpResponseRedirect('/')
+    if dictionary_list["current_user"] == None:        
+        return HttpResponseRedirect('/')
     message = ''
     if request.method == 'POST':
         form = IdeaForm(request.POST)
