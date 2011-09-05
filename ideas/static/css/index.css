@@ -113,12 +113,13 @@ ul#list-nav-right li a:hover {
 #header #list-nav form {
 	padding-top: 3px;
 	//margin-top: 5px;
-	padding-left: 15px;
+	padding-left: 10px;
 	display: inline;
 	vertical-align: top;
 	position: absolute;
 }
 
 #header #list-nav form input {
-	display: inline;
+	box-sizing: initial;
+	display: inline-block;
 }
