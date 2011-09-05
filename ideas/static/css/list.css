@@ -7,7 +7,7 @@
 }
 
 .idea {
-	background-color: lightgreen;
+	background-color: lightblue;
 	border-top: 5px white;
 	display: block;
 	padding-bottom: 40px;
@@ -18,7 +18,7 @@
 }
 
 .idea:hover {
-	background-color: lightblue;
+	background-color: lightgreen;
 }
 
 .ideaname a {

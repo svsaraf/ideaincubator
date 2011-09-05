@@ -8,6 +8,13 @@ from django.conf import settings
 from django.contrib.auth import login, authenticate
 # from i2.ideas.models import Idea
 
+def ideaview(request):
+    dictionary_list = getLoginInfo(request)
+    return render_to_response('home.html', {
+        "facebook_app_id": settings.FACEBOOK_APP_ID,
+        "current_user": dictionary_list["current_user"]},
+        context_instance=RequestContext(request)
+    )
 
 
 def index(request):
@@ -35,13 +42,13 @@ def search(request):
         message = 'You searched for %r' % request.GET['q']
     else:
         message = 'Search for something!'
-    return render_to_response('search_form.html', {'variable': message, "facebook_app_id": settings.FACEBOOK_APP_ID, "current_user": dictionary_list["current_user"], 'ideas': ideas})
+    return render_to_response('home.html', {'variable': message, "facebook_app_id": settings.FACEBOOK_APP_ID, "current_user": dictionary_list["current_user"], 'listofideas': ideas})
 
 def ideasubmit(request):
     dictionary_list = getLoginInfo(request)
     print dictionary_list["current_user"]
-    if dictionary_list["current_user"] == None:
-        return HttpResponseRedirect('/')
+#    if dictionary_list["current_user"] == None:
+#        return HttpResponseRedirect('/')
     message = ''
     if request.method == 'POST':
         form = IdeaForm(request.POST)
