@@ -1,0 +1,21 @@
+
+This is the repository for the ideaincubator.com code.  Check it out!
+
+Steps for installation: 
+
+1) Make sure sqlite3, python2.7 (earlier versions probably work) and django are installed.
+
+2) In a unix terminal window, type:
+
+git clone git://github.com/svsaraf/ideaincubator.git
+mv ideaincubator i2
+cd i2
+python manage.py syncdb
+
+3) Create a superuser. 
+
+python manage.py runserver
+
+4) Visit http://127.0.0.1:8000/ to check out the site!
+
+

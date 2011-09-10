@@ -1,0 +1,125 @@
+ul#list-nav {
+	display: inline;
+	list-style:none;
+	padding:3;
+}
+
+ul#list-nav-right {
+	display: inline;
+	list-style:none;
+	padding:3;
+}
+
+ul#list-nav li {
+	display:inline;
+}
+
+ul#list-nav-right li {
+	display:inline;
+}
+
+ul#list-nav li a {
+	vertical-align:bottom;
+	text-decoration:none;
+	padding-top: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background:#2F4F4F;
+	float: left;
+	color:#eee;
+	text-align:center;
+	/*border-left:1px solid #fff;*/
+	font: 13px/27px Arial, sans-serif;
+}
+
+#fb{
+	display:inline;
+	text-decoration:none;
+	background:#2F4F4F;
+	float: right;
+	text-align:center;
+	margin: 4px;
+}
+
+ul#list-nav li#logo a {
+	text-decoration:none;
+	padding-top: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background:#2F4F4F;
+	float: left;
+	color:#eee;
+	text-align:center;
+	/*border-left:1px solid #fff;*/
+	font: 20px/27px Georgia, sans-serif;
+	font-weight: bold;
+}
+
+ul#list-nav li#logo a:hover {
+        color:#ffffff;
+        text-decoration:underline;
+}
+
+
+ul#list-nav-right li a {
+	text-decoration:none;
+	padding-top: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background:#2F4F4F;
+	float: right;
+	color:#eee;
+	text-align:center;
+	/*border-left:1px solid #fff;*/
+	font: 13px/27px Arial, sans-serif;
+}
+
+
+ul#list-nav li a:hover {
+	background:#999999;
+	color:#ffffff
+}
+
+ul#list-nav-right li a:hover {
+	background:#999999;
+	color:#ffffff
+}
+
+#header {
+        background-color: #2F4F4F;
+        background-image: none;
+        background-position: 0 -138px;
+        background-repeat: repeat-x;
+        border-bottom: 1px solid #2F4F4F;
+	border-top: 1px solid #2F4F4F;
+        height: 30px;
+        opacity: 1; 
+        position: absolute;
+	box-shadow: 0px 5px 5px #888;
+	scrollable: hidden;
+
+	width: 100%;
+	top: 0;
+	left: 0;
+        right: 25px;
+
+}
+
+#central {
+	width: 850px;
+	margin-left: 15%;
+}
+
+#header #list-nav form {
+	padding-top: 3px;
+	//margin-top: 5px;
+	padding-left: 10px;
+	display: inline;
+	vertical-align: top;
+	position: absolute;
+}
+
+#header #list-nav form input {
+	box-sizing: initial;
+	display: inline-block;
+}
