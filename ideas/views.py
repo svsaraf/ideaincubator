@@ -25,6 +25,9 @@ def index(request):
     
     for idea in listofideas:
         print idea.pk
+    
+    if dictionary_list["current_user"] != None:
+        print dictionary_list["current_user"].pk
 
     return render_to_response('home.html', {
         "facebook_app_id": settings.FACEBOOK_APP_ID,
