@@ -2,6 +2,7 @@ from django.conf.urls.defaults import *
 from i2.ideas import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+#hello world
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
