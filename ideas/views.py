@@ -22,6 +22,9 @@ def index(request):
     print settings.FACEBOOK_APP_ID
     dictionary_list = getLoginInfo(request)
     listofideas = Idea.objects.all().order_by('-created_at')
+    
+    for idea in listofideas:
+        print idea.pk
 
     return render_to_response('home.html', {
         "facebook_app_id": settings.FACEBOOK_APP_ID,
