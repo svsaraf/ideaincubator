@@ -1,11 +1,18 @@
 from django.conf.urls.defaults import *
 from i2.ideas import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic.simple import direct_to_template
+from i2.ideas.models import *
 
 #hello world
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
+
+idea_detail_info = {
+    "queryset" : Idea.objects.all(),
+    "template_name": "idea_detail.html",
+}
 
 urlpatterns = patterns('',
     # Examples:
@@ -26,7 +33,9 @@ urlpatterns += patterns('ideas.views',
     (r'^search_form/$', 'search_form'),
     (r'^search/$', 'search'),
     (r'^ideasubmit/$', 'ideasubmit'),
-    (r'^ideaview/$', 'ideaview'),
+#    (r'^ideaview/$', 'ideaview'),
+    (r'^user/(\d+)/$', 'userdetail'),
+    (r'^idea/(\d+)/$', 'ideadetail'),
 )
 
 urlpatterns += staticfiles_urlpatterns()

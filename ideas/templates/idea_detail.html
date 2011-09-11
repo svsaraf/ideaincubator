@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+
+{% block staticstuff %}
+        <link rel="stylesheet" type="text/css" href="/static/css/list.css" />
+{% endblock %}
+
+{% block content %}
+	<div>&nbsp;</div>
+	<p>{{ currentidea.ideaname }}</p>
+	<p>{{ currentidea.ideadescription }}</p>
+	<p>{{ currentidea.author.name }}</p>
+
+
+{% endblock %}
+

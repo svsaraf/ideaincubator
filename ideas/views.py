@@ -16,6 +16,27 @@ def ideaview(request):
         context_instance=RequestContext(request)
     )
 
+def ideadetail(request, passedid):
+    currentidea = Idea.objects.get(pk=passedid)
+    print currentidea.ideaname
+    dictionary_list = getLoginInfo(request)
+    return render_to_response('idea_detail.html', {
+        "facebook_app_id": settings.FACEBOOK_APP_ID,
+        "current_user": dictionary_list["current_user"],
+        "currentidea": currentidea},
+        context_instance=RequestContext(request)
+    )
+
+def userdetail(request, passedid):
+    currentauthor = User.objects.get(pk=passedid)
+    print currentauthor.name
+    dictionary_list = getLoginInfo(request)
+    return render_to_response('user_detail.html', {
+        "facebook_app_id": settings.FACEBOOK_APP_ID,
+        "current_user": dictionary_list["current_user"],
+        "currentauthor": currentauthor},
+        context_instance=RequestContext(request)
+    )
 
 def index(request):
 #    import pdb; pdb.set_trace()
@@ -72,6 +93,9 @@ def ideasubmit(request):
     return render_to_response('ideasubmit.html', {
         'form': form, 'message': message, "facebook_app_id": settings.FACEBOOK_APP_ID, "current_user": dictionary_list["current_user"], 
     }, context_instance=RequestContext(request))
+
+#def display_idea(request, idea):
+#    return direct_to_template
 
 def getLoginInfo(request):
     cookie = facebook.get_user_from_cookie(request.COOKIES, settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
