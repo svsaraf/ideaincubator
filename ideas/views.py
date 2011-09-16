@@ -29,14 +29,17 @@ def ideadetail(request, passedid):
 
 def userdetail(request, passedid):
     currentauthor = User.objects.get(pk=passedid)
+    currentprofile = UserProfile.objects.get(user=currentauthor)
     print currentauthor.name
+    print currentprofile.fbid
     dictionary_list = getLoginInfo(request)
     listofideas = Idea.objects.filter(author=currentauthor)
     return render_to_response('user_detail.html', {
         "facebook_app_id": settings.FACEBOOK_APP_ID,
         "current_user": dictionary_list["current_user"],
         "currentauthor": currentauthor,
-        "listofideas": listofideas},
+        "listofideas": listofideas,
+        "currentprofile": currentprofile},
         context_instance=RequestContext(request)
     )
 
