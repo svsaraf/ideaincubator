@@ -22,7 +22,7 @@
         </ul>
         <ul id="list-nav-right">
 		{% if current_user %}
-		<li><a href="#">{{ current_user.first_name|escape }} {{ current_user.last_name|escape }}</a></li>
+		<li><a href="/user/{{ current_user.pk }}">{{ current_user.first_name|escape }} {{ current_user.last_name|escape }}</a></li>
 		{% else %}
 		<li><a href="#">Public</a></li>
 		{% endif %}

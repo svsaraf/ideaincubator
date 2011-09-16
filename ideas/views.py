@@ -31,10 +31,12 @@ def userdetail(request, passedid):
     currentauthor = User.objects.get(pk=passedid)
     print currentauthor.name
     dictionary_list = getLoginInfo(request)
+    listofideas = Idea.objects.filter(author=currentauthor)
     return render_to_response('user_detail.html', {
         "facebook_app_id": settings.FACEBOOK_APP_ID,
         "current_user": dictionary_list["current_user"],
-        "currentauthor": currentauthor},
+        "currentauthor": currentauthor,
+        "listofideas": listofideas},
         context_instance=RequestContext(request)
     )
 

@@ -7,5 +7,23 @@
 {% block content %}
   <div>&nbsp;</div>
   {{ currentauthor.name }}
+<p></p>
+<div>{{ listofideas.size }} Public Ideas</div>
+  <div class="idealist">
+  {% for idea in listofideas %}
+        <div id="space">
+        </div>
+        <div class="idea">
+                <div class="ideaname">
+                        <a href="/idea/{{ idea.pk }}">{{ idea.ideaname }}</a>
+                </div>
+                <div class="ideaauthor">
+                        <a href="/user/{{ idea.author.pk }}">{{ idea.author.name }}</a>
+                </div>
+        </div>
+  {% endfor %}
+  </div>
+
+
 {% endblock %}
 
