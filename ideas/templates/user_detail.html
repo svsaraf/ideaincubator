@@ -5,13 +5,14 @@
 {% endblock %}
 
 {% block content %}
+  <div id="central">
   <div>&nbsp;</div>
-  <img src="https://graph.facebook.com/{{ currentprofile.fbid }}/picture?type=large"/>
-<p>&nbsp;</p>
-  {{ currentauthor.name }}
-<p>&nbsp;</p>
-<div>{{ listofideas.size }} Public Ideas</div>
   <div class="idealist">
+  
+<img src="https://graph.facebook.com/{{ currentprofile.fbid }}/picture?type=large"/>
+<div>{{ currentauthor.name }}</div>
+<p>&nbsp;</p>
+<div>{{ listofideas|length }} Public Ideas</div>
   {% for idea in listofideas %}
         <div id="space">
         </div>
@@ -20,12 +21,14 @@
                         <a href="/idea/{{ idea.pk }}">{{ idea.ideaname }}</a>
                 </div>
                 <div class="ideaauthor">
-                        <a href="/user/{{ idea.author.pk }}">{{ idea.author.name }}</a>
+                        <a href="/user/{{ idea.author.pk }}">{{ idea.author.name }} at {{ idea.created_at }}</a>
                 </div>
-        </div>
+        
+
+	</div>
   {% endfor %}
   </div>
-
+</div>
 
 {% endblock %}
 

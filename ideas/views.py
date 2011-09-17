@@ -7,6 +7,8 @@ import facebook
 from django.conf import settings
 from django.contrib.auth import login, authenticate
 # from i2.ideas.models import Idea
+import json
+
 
 def ideaview(request):
     dictionary_list = getLoginInfo(request)
@@ -33,7 +35,7 @@ def userdetail(request, passedid):
     print currentauthor.name
     print currentprofile.fbid
     dictionary_list = getLoginInfo(request)
-    listofideas = Idea.objects.filter(author=currentauthor)
+    listofideas = Idea.objects.filter(author=currentauthor).order_by('-created_at')
     return render_to_response('user_detail.html', {
         "facebook_app_id": settings.FACEBOOK_APP_ID,
         "current_user": dictionary_list["current_user"],
@@ -45,15 +47,15 @@ def userdetail(request, passedid):
 
 def index(request):
 #    import pdb; pdb.set_trace()
-    print settings.FACEBOOK_APP_ID
+#    print settings.FACEBOOK_APP_ID
     dictionary_list = getLoginInfo(request)
     listofideas = Idea.objects.all().order_by('-created_at')
     
-    for idea in listofideas:
-        print idea.pk
+#    for idea in listofideas:
+#        print idea.pk
     
-    if dictionary_list["current_user"] != None:
-        print dictionary_list["current_user"].pk
+#    if dictionary_list["current_user"] != None:
+#        print dictionary_list["current_user"].pk
 
     return render_to_response('home.html', {
         "facebook_app_id": settings.FACEBOOK_APP_ID,
@@ -68,10 +70,11 @@ def search_form(request):
 def search(request):
     ideas = ''
     dictionary_list = getLoginInfo(request)
+    message = ''
     if 'q' in request.GET and request.GET['q']:
         q = request.GET['q']
         ideas = Idea.objects.filter(ideaname__icontains=q)
-        message = 'You searched for %r' % request.GET['q']
+        message = 'You searched for %r' % json.dumps(request.GET['q'])
     else:
         message = 'Search for something!'
     return render_to_response('home.html', {'variable': message, "facebook_app_id": settings.FACEBOOK_APP_ID, "current_user": dictionary_list["current_user"], 'listofideas': ideas})

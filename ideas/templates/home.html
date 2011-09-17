@@ -5,7 +5,8 @@
 {% endblock %}
 
 {% block content %}
-  <div>&nbsp;</div>
+<div id="central">  
+<div>&nbsp;</div>
   {{ variable }}
   <div class="idealist">
   {% for idea in listofideas %}
@@ -16,9 +17,10 @@
 			<a href="/idea/{{ idea.pk }}">{{ idea.ideaname }}</a>
 		</div>
 		<div class="ideaauthor">
-			<a href="/user/{{ idea.author.pk }}">{{ idea.author.name }}</a>
+			<a href="/user/{{ idea.author.pk }}">{{ idea.author.name }} at {{ idea.created_at }}</a>
 		</div>
 	</div>
   {% endfor %}
-  </div> 
+  </div>
+</div>
 {% endblock %}
