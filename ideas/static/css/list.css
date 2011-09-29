@@ -16,7 +16,7 @@
 	border-top: 5px white;
 	display: block;
 	padding-bottom: 40px;
-	padding-top: 20px;
+	padding-top: 10px;
 	padding-left: 10px;
 	text-decoration: none;
 //	vertical-align: bottom;
@@ -31,19 +31,39 @@
 	font: 20px sans-serif;
 	display: inline;
 	color: #000000;
-	width: 75%;
+	width: 100%;
 	float: left;
-	vertical-align: center;
+	vertical-align: top;
+}
+
+.ideaauthor {
+	text-decoration: none;
+	display: inline;
+	float: left;
+	font: 10px arial, sans-serif;
+	padding-top: 2px;
+	padding-left: 2px;
+	vertical-align: bottom;
+	color: dimgray;
 }
 
 .ideaauthor a {
 	text-decoration: none;
-	display: inline;
-	float: right;
-	font: 10px arial, sans-serif;
-	padding-top: 0px;
-	padding-right: 200px;
+	color: darkblue;
 }
+
+.ideatime {
+	text-decoration: none;
+	display: block;
+	float: left;
+	font: 10px arial, sans-serif;
+	padding-top: 2px;
+	padding-left: 0px;
+	vertical-align: bottom;
+	display: block;
+	color: dimgray;
+}
+
 #space {
 	height: 2px;
 	background-color: white;

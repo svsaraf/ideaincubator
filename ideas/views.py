@@ -9,6 +9,15 @@ from django.contrib.auth import login, authenticate
 # from i2.ideas.models import Idea
 import json
 
+def add(request):
+    new_message = Message(text=request.GET.get("mes"))
+    new_message.save()
+    messages = Message.objects.all()
+    return HttpResponse(serializers.serialize('json', messages), mimetype='application/json')
+
+def bb(request):
+    return render_to_response("bb.html");
+
 
 def ideaview(request):
     dictionary_list = getLoginInfo(request)

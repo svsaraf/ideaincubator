@@ -24,8 +24,8 @@ class UserProfile(models.Model):
 
 class Idea(models.Model):
     author = models.ForeignKey(User, related_name="author_idea")
-    ideaname = models.CharField(max_length=30)
-    ideadescription = models.CharField(max_length=200)
+    ideaname = models.CharField(max_length=100)
+    ideadescription = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     seen = models.BooleanField(default=False)
 
@@ -36,10 +36,16 @@ class IdeaForm(ModelForm):
     class Meta:
         model = Idea
         fields = ('ideaname', 'ideadescription')
+    ideaname = forms.CharField(label='Title of Idea')
+    ideadescription = forms.CharField(label='Description of Idea')
+
+class Message(models.Model):
+    text = models.TextField()
+    timestamp = models.DateTimeField(auto_now=True)
 
 class IdeaSubmitForm(forms.Form):
-#    ideaname = models.CharField(max_length=30, label='Title')
-#    ideadescription = models.CharField(max_length=200, label='Description')
+#    ideaname = models.CharField(max_length=100, label='Title')
+#    ideadescription = models.CharField(max_length=2000, label='Description')
 #
     class Meta:
         model = Idea

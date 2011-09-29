@@ -26,6 +26,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+#    (r'^threadedcomments/', include('threadedcomments.urls')),
 )
 
 urlpatterns += patterns('ideas.views',
@@ -36,6 +37,9 @@ urlpatterns += patterns('ideas.views',
 #    (r'^ideaview/$', 'ideaview'),
     (r'^user/(\d+)/$', 'userdetail'),
     (r'^idea/(\d+)/$', 'ideadetail'),
+#    (r'^vote/$', 'vote'),
+    (r'^bb$', 'bb'),
+    (r'^bb/add$', 'add'),
 )
 
 urlpatterns += staticfiles_urlpatterns()

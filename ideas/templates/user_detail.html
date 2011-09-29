@@ -20,15 +20,15 @@
                 <div class="ideaname">
                         <a href="/idea/{{ idea.pk }}">{{ idea.ideaname }}</a>
                 </div>
+		<div class="ideatime">
+			{{ idea.created_at|timesince }} ago
+		</div>
                 <div class="ideaauthor">
-                        <a href="/user/{{ idea.author.pk }}">{{ idea.author.name }} at {{ idea.created_at }}</a>
-                </div>
-        
-
+			- <a href="/user/{{ idea.author.pk }}">{{ idea.author.name }}</a>
+		</div>
 	</div>
   {% endfor %}
   </div>
 </div>
 
 {% endblock %}
-

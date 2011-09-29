@@ -5,7 +5,13 @@
 <p>&nbsp;</p>
 <div id="central">
         <form action='/ideasubmit/' method="post">{% csrf_token %}
-                {{ form.as_p }}
+                {{ form.non_field_errors }}
+		<div id="submit_ideaname">
+			{{ form.ideaname }}
+		</div>
+		<div id="submit_ideadescription">
+			{{ form.ideadescription }}
+		</div>
         <input type="submit" value="Submit" />
         </form>
 <p>
