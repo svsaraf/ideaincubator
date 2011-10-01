@@ -8,6 +8,7 @@ from django.conf import settings
 from django.contrib.auth import login, authenticate
 # from i2.ideas.models import Idea
 import json
+from django.utils import simplejson
 
 def add(request):
     new_message = Message(text=request.GET.get("mes"))
@@ -152,5 +153,33 @@ def getLoginInfo(request):
     parts_dict["message"] = message
     parts_dict["current_user"] = user
     return parts_dict
+
+
+def ajax_example(request):
+    if not request.POST:
+        return render_to_response('ajax_example.html', {})
+    xhr = request.GET.has_key('xhr')
+    response_dict = {}
+    name = request.POST.get('name', False)
+    total = request.POST.get('total', False)
+    response_dict.update({'name': name, 'total': total})
+    if total:
+        try:
+            total = int(total)
+        except:
+            total = False
+    if name and total and int(total) == 10:
+        response_dict.update({'success': True })
+    else:
+        response_dict.update({'errors': {}})
+        if not name:
+            response_dict['errors'].update({'name': 'This field is required'})
+        if not total and total is not False:
+            response_dict['errors'].update({'total': 'This field is required'})
+        elif int(total) != 10:
+            response_dict['errors'].update({'total': 'Incorrect total'})
+    if xhr:
+        return HttpResponse(simplejson.dumps(response_dict), mimetype='application/javascript')
+    return render_to_response('ajax_example.html', response_dict)
 
 #Create your views here.

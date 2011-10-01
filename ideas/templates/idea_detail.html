@@ -7,9 +7,25 @@
 {% block content %}
 	<div id="central">
 	<div>&nbsp;</div>
-	<p>{{ currentidea.ideaname }}</p>
-	<p>{{ currentidea.ideadescription }}</p>
-	<p>{{ currentidea.author.name }}</p>
+	<div class="idea">
+                <div class="ideaname">
+                        <a href="/idea/{{ currentidea.pk }}">{{ currentidea.ideaname }}</a>
+                </div>
+                <div class="ideatime">
+                        {{ currentidea.created_at|timesince }} ago
+                </div>
+                <div class="ideaauthor">
+                        - <a href="/user/{{ currentidea.author.pk }}">{{ currentidea.author.name }}</a>
+                </div>
+        </div>
+	<div id="space">
+	</div>
+	<div class="ideadescription">
+		<div class="ideadescriptiontext">
+			{{ currentidea.ideadescription }}
+		</div>
+	</div>
+
 	</div>
 
 {% endblock %}

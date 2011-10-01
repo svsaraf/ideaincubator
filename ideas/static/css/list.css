@@ -22,6 +22,24 @@
 //	vertical-align: bottom;
 }
 
+.ideadescription {
+	background-color: aliceblue;
+	border-top: 5px white;
+	display: block;
+	width: 75%;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 40px;
+	text-decoration: none;
+	float: right;
+}
+
+.ideadescriptiontext {
+	font: 17px arial, sans-serif;
+	text-decoration: none;
+	vertical-align: top;
+}
+
 .idea:hover {
 	background-color: lightgreen;
 }
