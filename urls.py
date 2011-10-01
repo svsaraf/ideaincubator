@@ -4,7 +4,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic.simple import direct_to_template
 from i2.ideas.models import *
 
-#hello world
+
+# this comment is to make sure github is working.
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
