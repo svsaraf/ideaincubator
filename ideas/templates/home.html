@@ -2,7 +2,69 @@
 
 {% block staticstuff %}
 	<link rel="stylesheet" type="text/css" href="/static/css/list.css" />
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/twitter.css" />
+//	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/
+ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() 
+{
+
+$('.block').click(function()
+{
+var id= $(this).attr('id'); // .block ID
+var data_id= $(".data").html(); // .data DIV value
+var panel= $('.panel');
+var panel_width=$('.panel').css('left'); // rolling panel width
+
+
+if(data_id==id)
+{
+// Rolling Animation
+panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
+}
+else
+{
+// panel width CSS width:340px + border:1px = 341px
+if(panel_width=='341px')
+{
+// No rolling animation
+}
+else
+{
+// Rolling Animation
+panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
+}
+}
+// passing id value to <div class='data'$gt; </div>
+$('.data').html(id);
+return false;
+});
+
+// panel close link
+$('.close').click(function() 
+{
+var panel= $('.panel');
+panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
+return false;
+});
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}
 
 {% block content %}
@@ -26,6 +88,34 @@
 	</div>
   {% endfor %}
   </div>
+
+<div id='container'>
+<div class='right'>
+It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+</div>
+
+<div id="panel-frame">
+<div class="panel">
+<div class="head"> <a href="#" class="close">Close</a></div>
+<div class="data">
+</div>
+</div>
+</div>
+<div class="left">
+
+Click on a paragraph!
+
+<div class="block" id="1">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+&nsbp;
+
+</div>
+<div class="block" id="2">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+</div>
+</div>
+</div>
 {% endblock %}
 
 {% block afterbody %}
