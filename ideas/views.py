@@ -9,6 +9,7 @@ from django.contrib.auth import login, authenticate
 # from i2.ideas.models import Idea
 import json
 from django.utils import simplejson
+from django.http import HttpResponse
 
 def add(request):
     new_message = Message(text=request.GET.get("mes"))
@@ -19,6 +20,9 @@ def add(request):
 def bb(request):
     return render_to_response("bb.html");
 
+def testthisajax(request):
+    response_string="hello"
+    return HttpResponse(response_string, mimetype='text/plain')
 
 def ideaview(request):
     dictionary_list = getLoginInfo(request)

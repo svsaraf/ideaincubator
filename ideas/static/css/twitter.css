@@ -1,14 +1,14 @@
 #container
 {
-	width:700px;
+	width:900px;
 	margin:0 auto;
 	margin-top: 150px;
-	background-color:#ffffff; 
+	background-color:#FFFFFF; 
 	min-height:500px; 
 	overflow:auto;
 	-moz-border-radius:5px;
 	-webkit-border-radius:6px;
-	border:solid 1px #999999;
+//	border:solid 1px #999999;
 }
 
 
@@ -16,21 +16,40 @@
 {
 	float:left; 
 	background-color:#fff; 
-	width:350px; min-height:300px;
+	width:450px;
 	position:relative;
+	vertical-align: top;
+//	border-right: solid 1px #999999;
+}
+
+.ideadescription {
+        background-color: aliceblue;
+        border-top: 5px white;
+        display: block;
+        width: 75%;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-bottom: 40px;
+        text-decoration: none;
+        float: right;
 }
 
 
 .right
 {
-	float:right; width:350px;
+	background-color: aliceblue;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 25px;
+	float:right; width:440px;
+//	border-left: solid 1px #999999;
 }
 
 
 #panel-frame
 {
 	position:relative;
-	max-width:700px; 
+	max-width:900px; 
 	position:fixed;
 }
 
@@ -38,20 +57,32 @@
 .panel
 {
 	background-color:#f2f2f2; 
-	width:340px; 
+	width:450px; 
 	height:550px;
-	margin-top:20px;
+	margin-top:0px;
 	position:relative;
 	position:absolute;
-	border:solid 1px #999999;
-	border-left:0px;
+//	border:solid 1px #999999;
+//	border-left:0px;
 	left:0; 
 }
 
 
 .head
 {
-	background-color:#ffc72e;
-	padding:10px;
+	background-color:#2F4F4F;
+	padding:5px;
 	text-align:right;
+}
+
+.head a
+{
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.head a:hover
+{
+        background:#999999;
+        color:#ffffff
 }

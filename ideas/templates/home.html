@@ -11,43 +11,53 @@ ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 $(document).ready(function() 
 {
 
+var currentpanel=0;
+
 $('.block').click(function()
 {
-var id= $(this).attr('id'); // .block ID
-var data_id= $(".data").html(); // .data DIV value
-var panel= $('.panel');
-var panel_width=$('.panel').css('left'); // rolling panel width
+
+	var id= $(this).attr('id'); // .block ID
+	var data_id= currentpanel; //$(".data").html(); // .data DIV value
+	var panel= $('.panel');
+	var panel_width=$('.panel').css('left'); // rolling panel width
 
 
-if(data_id==id)
-{
-// Rolling Animation
-panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
-}
-else
-{
-// panel width CSS width:340px + border:1px = 341px
-if(panel_width=='341px')
-{
-// No rolling animation
-}
-else
-{
-// Rolling Animation
-panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
-}
-}
-// passing id value to <div class='data'$gt; </div>
-$('.data').html(id);
-return false;
+	if(data_id==id)
+	{
+		// Rolling Animation
+		panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
+	}
+	else
+	{
+		// panel width CSS width:340px + border:1px = 341px
+		if(panel_width=='450px')
+		{
+			// No rolling animation
+		}
+		else
+		{
+			// Rolling Animation
+			panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
+		}
+	}
+	// passing id value to <div class='data'$gt; </div>
+	$.ajax({
+		url: '/testthisajax/',
+		success: function(data) {
+			$('.data').html(data);
+		}
+	});
+	//$('.data').html(id);
+	currentpanel = id;
+	return false;
 });
 
 // panel close link
 $('.close').click(function() 
 {
-var panel= $('.panel');
-panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
-return false;
+	var panel= $('.panel');
+	panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
+	return false;
 });
 
 });
@@ -102,17 +112,22 @@ It is a long established fact that a reader will be distracted by the readable c
 </div>
 </div>
 <div class="left">
-
-Click on a paragraph!
-
-<div class="block" id="1">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-
-&nsbp;
-
+{% for idea in listofideas %}
+<div class="block" id="{{ idea.pk }}">
+	<div id="space"></div>
+	<div class="idea">
+		<div class="ideaname">
+			<a href="/idea/{{ idea.pk }}">{{ idea.ideaname }}</a>
+		</div>
+		<div class="ideatime">
+			{{ idea.created_at|timesince }} ago
+		</div>
+		<div class="ideaauthor">
+			 - <a href="/user/{{ idea.author.pk }}">{{ idea.author.name }}</a>
+		</div>
+	</div>
 </div>
-<div class="block" id="2">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+{% endfor %}
 </div>
 </div>
 </div>

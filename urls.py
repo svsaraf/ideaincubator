@@ -41,6 +41,7 @@ urlpatterns += patterns('ideas.views',
 #    (r'^vote/$', 'vote'),
     (r'^bb$', 'bb'),
     (r'^bb/add$', 'add'),
+    (r'^testthisajax/$', 'testthisajax'),
 )
 
 urlpatterns += staticfiles_urlpatterns()
