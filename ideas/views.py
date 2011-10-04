@@ -22,6 +22,16 @@ def bb(request):
 
 def testthisajax(request):
     response_string="hello"
+    if request.method == u'GET':
+        print "Got here"
+        GET = request.GET
+        if GET.has_key(u'myid'):
+            print "Got here too"
+            idvalue = int(GET[u'myid'])
+            #print idvalue
+            currentidea = Idea.objects.get(pk=idvalue)
+            response_string = currentidea.ideadescription
+            #response_string = response_string + str(idvalue)
     return HttpResponse(response_string, mimetype='text/plain')
 
 def ideaview(request):
