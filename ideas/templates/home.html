@@ -80,7 +80,6 @@ It is a long established fact that a reader will be distracted by the readable c
 <div class="left">
 {% for idea in listofideas %}
 <div class="block" id="{{ idea.pk }}">
-	<div id="space"></div>
 	<div class="idea">
 		<div class="ideaname">
 			<a href="/idea/{{ idea.pk }}">{{ idea.ideaname }}</a>
@@ -92,6 +91,7 @@ It is a long established fact that a reader will be distracted by the readable c
 			 - <a href="/user/{{ idea.author.pk }}">{{ idea.author.name }}</a>
 		</div>
 	</div>
+        <div id="space"></div>
 </div>
 {% endfor %}
 </div>
